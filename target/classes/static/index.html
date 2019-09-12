@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+
+<div>
+    <button type="submit" onclick="UserAction()">Call API</button>
+</div>
+
+<script type="text/javascript">
+
+    function UserAction() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+        };
+
+        xhttp.open("GET", "http://localhost:8080/greeting", true);
+        //xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+        //As we are passing authorization header, when we click button Call API, there will not pop up asking for password.
+        //If we dont set this, we get pop-up asking for username password.
+        xhttp.setRequestHeader("Authorization", "Basic "+btoa("user:password"));
+
+        xhttp.send();
+    }
+</script>
+
+</body>
+
+</html>
