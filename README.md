@@ -1,5 +1,12 @@
 # spring-security-sample
 
+Basic technologies for this project:
+
+spring security - for security
+spring web: For developing rest apis
+javascript/Ajax: for calling rest apis
+html: to show response ui.
+
 This project has rest API:
 http://localhost:8080/greeting
 which needs basic auth to access.
